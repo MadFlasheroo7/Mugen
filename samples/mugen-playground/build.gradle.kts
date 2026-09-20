@@ -1,0 +1,57 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
+plugins {
+    alias(libs.plugins.mugen.cmp.application)
+}
+
+kotlin {
+    @Suppress("OPT_IN_USAGE")
+    targets.configureEach {
+        if (this is com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget) {
+            namespace = "pro.jayeshseth.mugen.sample"
+        }
+    }
+    
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(projects.mugenCore)
+                implementation(projects.mugenLookHaze)
+                implementation(projects.mugenLookMaterial)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.ui)
+            }
+        }
+        desktopMain {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
+        androidMain {
+            dependencies {
+                implementation(libs.androidx.activity.compose)
+            }
+        }
+        webMain {
+            dependencies {
+                implementation(libs.kotlinx.browser)
+            }
+        }
+    }
+}
+
+compose {
+    desktop {
+        application {
+            mainClass = "pro.jayeshseth.mugen.sample.MainKt"
+
+            nativeDistributions {
+                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+                packageName = "mugen-playground"
+                packageVersion = "1.0.0"
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+# General & OS
+.DS_Store
+Thumbs.db
+*.log
+*.orig
+
+# Secrets & Local Configuration
+local.properties
+*.keystore
+*.jks
+
+# Gradle & Build Artifacts
+.gradle/
+build/
+**/build/
+*.hprof
+
+# Kotlin Multiplatform
+.kotlin/
+**/.kotlin/
+.konan/
+kotlin-js-store/
+
+# Android
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# iOS & Xcode
+**/xcuserdata/
+**/DerivedData/
+*.xcuserstate
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM/
+*.dSYM.zip
+.build/
+.swiftpm/
+Pods/
+
+# IDEs (Android Studio / IntelliJ / Fleet)
+*.iml
+.idea/
+.fleet/
+out/
+/ai
