@@ -12,6 +12,7 @@ This document outlines the planned release milestones for Mugen. It serves as a 
 ## indev02
 - [ ] Improve ui and dev experience
 - [ ] Bug Fixes
+- [ ] Publish Look packages (`mugen-look-haze`, `mugen-look-material`)
 - [ ] Website, portal????
 
 ## indev03
@@ -20,7 +21,8 @@ This document outlines the planned release milestones for Mugen. It serves as a 
 ---
 
 ## alpha01
-- [ ] deta
+- [ ] ai helper tools
+- [ ] detach looks?
 - [ ] Fancy Readme??
 - [ ] Performance Testing
 

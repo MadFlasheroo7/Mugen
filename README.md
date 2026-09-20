@@ -35,13 +35,67 @@ Mugen is built around three core architectural tenets:
 
 ```text
 Mugen/
-├── mugen/                     # Core Multiplatform Library (Tokens, Contracts, Components, PlainLook)
+├── mugen-core/                # Core Multiplatform Library (Tokens, Contracts, Components, PlainLook)
 ├── mugen-look-haze/           # Glassmorphic Haze Look & RendererSet (HazeTheme)
 ├── mugen-look-material/       # Material-3 Themed Look & RendererSet (MugenMaterialTheme)
 ├── samples/
 │   └── mugen-playground/     # Multiplatform Showcase (Android, Desktop, Web JS/Wasm, iOS)
 ├── iosApp/                    # Xcode iOS Application
 └── build-logic/               # Convention Plugins (mugen.cmp.library, mugen.cmp.application)
+```
+
+---
+
+## Installation
+
+Mugen is published to Maven Central. Ensure `mavenCentral()` is declared in your repository list (e.g. in `settings.gradle.kts`):
+
+> [!NOTE]
+> Look packages (`mugen-look-haze` and `mugen-look-material`) are currently in active development and are not published to Maven Central yet. Only `mugen-core` is available for `0.0.0-indev01`. Publishing for Look packages is planned for `indev02`.
+
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+```
+
+### 1. Version Catalog (`gradle/libs.versions.toml`)
+
+```toml
+[versions]
+mugen = "0.0.0-indev01"
+
+[libraries]
+mugen-core = { module = "pro.jayeshseth.mugen:mugen-core", version.ref = "mugen" }
+# Optional Looks:
+mugen-look-haze = { module = "pro.jayeshseth.mugen:mugen-look-haze", version.ref = "mugen" }
+mugen-look-material = { module = "pro.jayeshseth.mugen:mugen-look-material", version.ref = "mugen" }
+```
+
+### 2. Multiplatform Dependencies (`build.gradle.kts`)
+
+Add `mugen-core` to your module's `commonMain` dependencies:
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.mugen.core)
+
+            // Optional Looks:
+            // implementation(libs.mugen.look.haze)
+            // implementation(libs.mugen.look.material)
+        }
+    }
+}
+```
+
+Or using direct coordinate string:
+
+```kotlin
+implementation("pro.jayeshseth.mugen:mugen-core:0.0.0-indev01")
 ```
 
 ---
