@@ -125,9 +125,3 @@ MugenTheme(
 ```bash
 ./gradlew :samples:mugen-playground:compileKotlinIosSimulatorArm64
 ```
-
----
-
-## Future Roadmap
-
-See [`indevV2.md`](ai/indevV2.md) for the upcoming Mugen V2 KSP Tooling Engine & Automation specifications.
